@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Payment Redirect</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .container {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        h1 {
+            color: #428bca;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #428bca;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #3071a9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Payment Redirect Page</h1>
+        <p>Enter your payment link below and click the button to proceed with the payment:</p>
+        <input type="text" id="paymentLink" placeholder="Paste your payment link here">
+        <button onclick="redirectToPayment()">Proceed to Payment</button>
+    </div>
+
+    <script>
+        function redirectToPayment() {
+            var paymentLink = document.getElementById("paymentLink").value;
+            if (paymentLink.trim() !== "") {
+                // In a real-world scenario, you would send the paymentLink to a secure payment gateway for processing.
+                // For demonstration purposes, we will just simulate a redirect using the entered link.
+                window.location.href = paymentLink;
+            } else {
+                alert("Please enter a valid payment link.");
+            }
+        }
+    </script>
+</body>
+</html>
