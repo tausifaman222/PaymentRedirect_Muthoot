@@ -7,12 +7,12 @@ function App() {
 
   const redirectToPayment = () => {
     if (paymentLink.trim() !== '') {
-      // Check if the link includes "https://" and "www"
-      if (!paymentLink.includes('https://www')) {
-        // If "https://" and "www" are not present, add them to the URL
-        window.location.href = `https://www.${paymentLink}`;
+      // Check if the link includes "http" or "https"
+      if (!/^https?:\/\//i.test(paymentLink)) {
+        // If "http" or "https" is not present, add "https://" to the URL
+        window.location.href = `https://${paymentLink}`;
       } else {
-        // If "https://" and "www" are already present, use the entered link as is
+        // If "http" or "https" is already present, use the entered link as is
         window.location.href = paymentLink;
       }
     } else {
@@ -31,7 +31,7 @@ function App() {
   return (
     <div className="container">
       <div className="logo-container">
-        <img src="https://images.yourstory.com/cs/wordpress/2018/03/signzy-logo.png?fm=png&auto=format" alt="PaymentHub Logo" className="logo" />
+        <img src="paymenthub-logo.png" alt="PaymentHub Logo" className="logo" />
         <h1>Payment Gateway</h1>
       </div>
       {showWelcomeMessage && (
